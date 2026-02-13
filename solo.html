@@ -699,7 +699,7 @@ osc2.frequency.exponentialRampToValueAtTime(70, now + 1);
         function shoot() {
             if (!state.active || state.mode !== 'BOSS') return;
             const now = Date.now();
-            if (now - state.lastShot < 320) return;
+            if (now - state.lastShot < 120) return;
             state.lastShot = now;
 
             weapon.position.y = -0.5;
@@ -715,7 +715,7 @@ osc2.frequency.exponentialRampToValueAtTime(70, now + 1);
             bullet.scale.set(1.8, 1.8, 1);
             bullet.position.copy(camera.position);
             const dir = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion).normalize();
-            bullet.userData.vel = dir.multiplyScalar(145);
+            bullet.userData.vel = dir.multiplyScalar(50);
             bullet.userData.friendly = true;
             scene.add(bullet);
             projectiles.push(bullet);
